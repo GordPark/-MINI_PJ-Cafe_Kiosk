@@ -1,0 +1,5 @@
+<!-- home.html -->
+<h1>환영합니다. 무인카페 코코입니다. [주문시작]버튼을 눌러주세요.</h1>
+
+<!-- cafe:category에 order_id를 전달하여 링크를 생성합니다. -->
+<a href="{% url 'cafe:category' order_id=order_id %}"><button>주문시작</button></a>

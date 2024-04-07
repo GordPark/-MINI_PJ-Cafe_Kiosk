@@ -1,0 +1,36 @@
+{% include 'cafe/boot_style.html' %}
+
+<!-- 메뉴 디테일.html -->
+<div class="container">
+    <br>
+    <div class="btn-group btn-group-lg" role="group" aria-label="Large button group">
+        <button type="button" class="btn btn-outline-primary">{{object}}</button>
+        <button type="button" class="btn btn-outline-primary">{{object}}</button>
+        <button type="button" class="btn btn-outline-primary">{{object}}</button>
+    </div>
+
+    <br>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <fieldset>
+            
+            <legend><h1>{{ object.category }}</h1></legend>
+            
+            {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+            {% for one in object.menu_set.all %}
+                
+                <li>menu price-{{one.price}} <a href=""><button>{{ one.menu_name}}</button>버튼클릭시 옵션</a> </li>
+
+                <a href=""><button>+</button></a>
+                <a href="{% url 'cafe:shopping_cart' }">담기<Button></Button></a>
+            {% endfor %}
+        </fieldset>
+        <input type="submit" value="Vote">
+        
+    </form>
+
+    <!-- 장바구니 -->
+
+</div>
+{% include 'cafe/footer_script.html' %}

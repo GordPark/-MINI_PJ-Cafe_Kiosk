@@ -1,0 +1,17 @@
+{% include 'cafe/boot_style.html' %}
+<!-- 카테고리 리스트.html -->
+<div class="container">
+    <h1>주문하실 음료 종류 선택해주세요.</h1>
+    <br>
+
+    <div class="btn-group btn-group-lg" role="group" aria-label="Large button group" style="width:100%;">
+        {% for one in category %}
+        <a href="{% url 'cafe:menu_detail' order_id=order_id category_id=one.id %}">
+            <button type="button" class="btn btn-outline-primary">{{one}}</button>
+        </a>
+        {% endfor %}
+    </div>
+   
+</div>
+
+{% include 'cafe/footer_script.html' %}

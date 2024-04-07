@@ -1,0 +1,31 @@
+# menu_detail 원래버전
+<h1>{{object}}</h1>
+
+<br>
+
+{% for one in object.menu_set.all %}
+<li>menu price-{{one.price}} <a href=""><button>{{ one.menu_name}}</button>버튼클릭시 옵션</a> </li>
+
+<a href=""><button>+</button></a>
+<a href="{% url 'cafe:shopping_cart' }">담기<Button></Button></a>
+{% endfor %}
+
+## 버튼 라디오
+<div class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group">
+    <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off" checked>
+    <label class="btn btn-outline-primary" for="vbtn-radio1">{{object}}</label>
+    <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio2" autocomplete="off">
+    <label class="btn btn-outline-primary" for="vbtn-radio2">{{object}}</label>
+    <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio3" autocomplete="off">
+    <label class="btn btn-outline-primary" for="vbtn-radio3">{{object}}</label>
+  </div>
+
+  ## 카테고리 버튼 
+  <div style="display: inline;">
+    {% for one in category %}
+    <h2><a href="{% url 'cafe:menu_detail' order_id=order_id category_id=one.id %}"><button>{{one.category}}</button></a></h2>
+        {% for m_one in one.menu_set_all %}
+            {{m_one}}
+        {% endfor %}    
+    {% endfor %}
+</div>
