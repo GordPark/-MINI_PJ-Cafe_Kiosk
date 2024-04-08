@@ -2,10 +2,10 @@
 <img src ="https://img.shields.io/badge/Python-071D49?logo=Python&logoColor=white"/><img src="https://img.shields.io/badge/django-092E20?style=flat-square&logo=django&logoColor=white"/><img src="https://img.shields.io/badge/Bootstrapap-7952B3?style=flat-square&logo=bootstrap&logoColor=white"/><img src ="https://img.shields.io/badge/OpenAI-00A3E0?logo=OpenAI&logoColor=white"/>
 
 🛒Kiosk-COCO
+v24/4/8
 
 ## Description
 
-24/4/8 -- 리드미
 
 -- Home(주문시작)을 알리는 페이지로 URL은 포트번호로 시작하며 버튼을 누르면 카테고리로 넘어갑니다.
 
