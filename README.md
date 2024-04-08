@@ -2,14 +2,7 @@
 
 <img src ="https://img.shields.io/badge/Python-071D49?logo=Python&logoColor=white"/><img src="https://img.shields.io/badge/django-092E20?style=flat-square&logo=django&logoColor=white"/><img src="https://img.shields.io/badge/Bootstrapap-7952B3?style=flat-square&logo=bootstrap&logoColor=white"/><img src ="https://img.shields.io/badge/OpenAI-00A3E0?logo=OpenAI&logoColor=white"/>
 
-<<<<<<< HEAD
-<img src ="https://img.shields.io/badge/Python-071D49?logo=Python&logoColor=white"/><img src="https://img.shields.io/badge/django-092E20?style=flat-square&logo=django&logoColor=white"/><img src="https://img.shields.io/badge/Bootstrapap-7952B3?style=flat-square&logo=bootstrap&logoColor=white"/><img src ="https://img.shields.io/badge/OpenAI-00A3E0?logo=OpenAI&logoColor=white"/>
-
-=======
-
-> > > > > > > a1b71a8c6e0e4f6006e81ba8820f21465eb58542
-> > > > > > > 🛒Kiosk-COCO
-> > > > > > > v24/04/08
+🛒Kiosk-COCO v24/04/08
 
 ## Description
 
