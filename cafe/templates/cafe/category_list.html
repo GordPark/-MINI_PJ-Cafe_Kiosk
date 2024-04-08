@@ -1,16 +1,30 @@
 {% include 'cafe/boot_style.html' %}
+{% load static %}
 <!-- 카테고리 리스트.html -->
 <div class="container">
     <h1>주문하실 음료 종류 선택해주세요.</h1>
     <br>
+    <h3>주문번호 - #{{order_id}}</h3>
+    <br>
 
-    <div class="btn-group btn-group-lg" role="group" aria-label="Large button group" style="width:100%;">
+    <div class="btn-group btn-group-lg" role="group" aria-label="Large button group" style="width:100%;">        
         {% for one in category %}
-        <a href="{% url 'cafe:menu_detail' order_id=order_id category_id=one.id %}">
-            <button type="button" class="btn btn-outline-primary">{{one}}</button>
-        </a>
+        <div class="card mb-4 rounded" style="padding: 20px 20px;">
+            <!-- 이미지경로 매칭 -->
+            {% with "cafe/menu/"|add:one.category|add:".jpg" as image_static %}
+            <img src="{% static image_static %}" style="max-width: 400px; max-height: 400px; width: auto; height: auto; border-radius: 10%;"/>
+            {% endwith %}
+
+            <a href="{% url 'cafe:menu_detail' order_id=order_id category_id=one.id %}" class="show-form-btn" data-category-id="{{ one.id }}" style="padding: 17px 0 0 17px;">
+                <button type="button" class="btn btn-outline-primary"  >{{one}}</button>
+            </a>
+        </div>
         {% endfor %}
+        
     </div>
+
+    
+    
    
 </div>
 

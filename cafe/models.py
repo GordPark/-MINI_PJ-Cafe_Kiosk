@@ -25,12 +25,18 @@ class Menu(models.Model):
     menu_name = models.CharField('MENU NAME',max_length=20)
     category = models.ForeignKey(Menu_Category, on_delete=models.CASCADE)
     # 옵션: Hot / Iced / Only Iced
-    Option = models.CharField('OPTION',max_length=20, default='default_option')
+    option = models.CharField('OPTION',max_length=20, default='default_option')
     price = models.IntegerField()
-    description = models.TextField()
+    description = models.TextField()    
     best = models.BooleanField(default=True)
     # 품절처리
     disabled = models.BooleanField(default=True)
+    
+    ## 해당경로 만들고 디비에 저장하고 만들어야함
+    # 메서드 만들어서 
+    # get_absolute_url처럼 가져와도됨    
+    def get_image_path(self):
+        pass
     
     
     class Meta:
@@ -48,6 +54,7 @@ class Shopping_Cart(models.Model):
     quantity = models.IntegerField()
     total_price = models.IntegerField()
     total_amount = models.IntegerField()
+    option = models.ForeignKey(Menu, on_delete=models.CASCADE, related_name='menu_option', null=True)
     
 
 # 주문 

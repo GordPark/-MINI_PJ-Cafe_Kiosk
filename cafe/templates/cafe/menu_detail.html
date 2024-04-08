@@ -1,7 +1,11 @@
 {% include 'cafe/boot_style.html' %}
+{% load static %}
 
 <!-- 메뉴 디테일.html -->
 <div class="container">
+    <br>
+    <h3>주문번호 - #{{order_id}}</h3>
+    <br>
     <br>
     <div class="btn-group btn-group-lg" role="group" aria-label="Large button group">
         <button type="button" class="btn btn-outline-primary">{{object}}</button>
@@ -11,26 +15,121 @@
 
     <br>
 
-    <form action="" method="post">
-        {% csrf_token %}
+    <form action="{% url 'cafe:shopping' order_id=order_id category_id=object.id shopping_id=shopping_id %}" method="get">        
         <fieldset>
             
             <legend><h1>{{ object.category }}</h1></legend>
             
             {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+            <div class="card mb-4" style="padding: 12px;">
             {% for one in object.menu_set.all %}
+                {% with "cafe/menu/"|add:one.menu_name|add:".jpg" as image_static %}
+                <img src="{% static image_static %}" style="max-width: 400px; max-height: 400px; width: auto; height: auto; border-radius: 10%;" />
+                {% endwith %}
+                <li style="list-style: none">{{ one.menu_name}} ₩{{one.price}} <a href=""></a> </li>
                 
-                <li>menu price-{{one.price}} <a href=""><button>{{ one.menu_name}}</button>버튼클릭시 옵션</a> </li>
-
-                <a href=""><button>+</button></a>
-                <a href="{% url 'cafe:shopping_cart' }">담기<Button></Button></a>
+                <div class="dropdown" data-menu-id="{{ one.id }}" data-menu-option="{{ one.Option }}">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      옵션
+                    </button>
+                     
+                    <ul class="dropdown-menu">
+                        <!-- 옵션에 Iced_only만 있는 메뉴 -->
+                        {% if one.option == 'Iced_only' %}
+                        <li><a class="dropdown-item" href="#">Iced Only</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        {% else %}
+                        <li><a class="dropdown-item" href="#">Iced</a></li>
+                        <li><a class="dropdown-item" href="#">Hot</a></li>                                              
+                        {% endif %}
+                    </ul>
+                    <button class="btn btn-outline-primary add_quantity" type="button">+</button>
+                    <button class="btn btn-outline-primary subtract_quantity" type="button">-</button>
+                    <p class="option_display">옵션: <span class="option">{{one.Option}}</span></p>                
+                    <p class="count_display">수량: <span class="count">0</span></p>                
+                    
+                  </div>
+                  <br>
+                  
+                
+                
+                <a href=""><Button class="btn btn-outline-primary add_to_cart">담기</Button></a>
+                <hr class="divider">
+                
             {% endfor %}
+            </div>  
         </fieldset>
-        <input type="submit" value="Vote">
+        <br> 
+        <!-- 장바구니 -->       
+        <Button type="submit" class="btn btn-outline-primary">주문하기</Button>
         
     </form>
 
-    <!-- 장바구니 -->
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // 드롭다운 아이템이 클릭되었을 때
+            $('.dropdown-menu a').click(function(event) {
+                event.preventDefault(); // 링크의 기본 동작을 중지합니다.
+                var optionText = $(this).text(); // 클릭된 드롭다운 아이템의 텍스트를 가져옵니다.
+                var dropdown = $(this).closest('.dropdown');
+                dropdown.find('.dropdown-toggle').text(optionText); // 드롭다운 버튼의 텍스트를 업데이트합니다.
+                dropdown.find('.option').text(optionText); // 각 메뉴 항목의 옵션을 업데이트합니다.
+            });
+            // 버튼을 클릭하면 수량이 1 증가하거나 감소합니다.
+            var count = 0;
+            $('.add_quantity').click(function(event) {
+                var dropdown = $(this).closest('.dropdown');
+                var countSpan = dropdown.find('.count');
+                count = parseInt(countSpan.text());
+                console.log("countSpan.text():", countSpan.text())
+                count++;
+                countSpan.text(count); // count 값을 표시합니다.          
+                console.log("현재수량", count);
+            });
+            
+            $('.subtract_quantity').click(function(event) {
+                event.preventDefault(); // 버튼의 기본 동작을 중지합니다.
+                var dropdown = $(this).closest('.dropdown');
+                var countSpan = dropdown.find('.count');
+                count = parseInt(countSpan.text());
+                console.log("countSpan.text():", countSpan.text())
+                if (count > 0) {                                    
+                    count--;     
+                    countSpan.text(count); // count 값을 표시합니다.
+                    console.log("현재수량", count);
+            }});
+
+            // 저장된 정보 AJAX로 장고로 전송
+            $('.add_to_cart').click(function(event) {
+            event.preventDefault();
+            var menuId = $(this).closest('.dropdown').data('menu-id');
+            var quantity = parseInt($(this).siblings('.count').text());
+            var option = $(this).siblings('.option').text();
+            addToCart(menuId, quantity, option);
+            });
+
+            function addToCart(menuId, quantity, option) {
+                console.log("addToCart 호출됨");
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'cafe:shopping' order_id=order_id category_id=object.id %}",
+                    data: {
+                        'menu_id': menuId,
+                        'quantity': quantity,
+                        'option': option,
+                        'csrfmiddlewaretoken': '{{ csrf_token }}'
+                    },
+                    dataType: 'json',
+                    success: function(data) {
+                        // 처리 완료 후 필요한 동작 수행
+                        console.log("장바구니에 추가되었습니다.");
+                    }
+                });
+            }
+        });
+    </script>
 
 </div>
 {% include 'cafe/footer_script.html' %}

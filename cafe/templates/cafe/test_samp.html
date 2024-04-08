@@ -29,3 +29,39 @@
         {% endfor %}    
     {% endfor %}
 </div>
+
+## 카테고리 a / link {% url 'cafe:menu_detail' order_id=order_id category_id=one.id %}
+
+
+
+category_list 토글로 한페이지로 모으기
+<form action="" method="post" id="category-menu" style="display: none;">
+  {% csrf_token %}
+  <fieldset>
+      
+      <legend><h1>{{ category }}</h1></legend>
+      
+      {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+      {% for one in category.menu_set.all %}
+          
+          <li>menu price-{{one.price}} <a href=""><button>{{ one.menu_name}}</button>버튼클릭시 옵션</a> </li>
+
+          <a href=""><button>+</button></a>
+          <a href="{% url 'cafe:shopping_cart' }">담기<Button></Button></a>
+      {% endfor %}
+  </fieldset>
+  <input type="submit" value="Vote">
+  
+</form>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // 버튼을 클릭하면 폼을 토글(toggle)하여 보이거나 감춥니다.
+            $('.show-form-btn').click(function() {
+                var categoryId = $(this).data('category-id');
+                var categoryMenu = $('#category-menu-' + categoryId);
+                categoryMenu.toggle();
+            });
+        });
+    </script>
