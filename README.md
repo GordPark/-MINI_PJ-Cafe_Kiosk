@@ -19,6 +19,9 @@
 20초를 설정하여 시간이 지나면 처음 페이지로 돌아갑니다.
 
 ## 📝Conceive
+![키오스크1](https://github.com/GordPark/MINI_PJ-Cafe_Kiosk/assets/134121857/87149987-837c-467f-83bf-98627ad4e228)
+![키오스크2](https://github.com/GordPark/MINI_PJ-Cafe_Kiosk/assets/134121857/e44e8dbe-73a2-4ec8-98de-708589f10e26)
+
 
 ## Environment
 
