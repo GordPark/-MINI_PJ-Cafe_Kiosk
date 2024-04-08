@@ -18,6 +18,14 @@
 **구현하고 싶은 기능**
 20초를 설정하여 시간이 지나면 처음 페이지로 돌아갑니다.
 
+## 대문페이지
+![대문페이지](https://github.com/GordPark/MINI_PJ-Cafe_Kiosk/assets/134121857/fecbf38a-1db9-4f52-9d1a-b82edb2c1298)
+## 카테고리 페이지
+![카테고리 페이지](https://github.com/GordPark/MINI_PJ-Cafe_Kiosk/assets/134121857/287e89e8-0e01-47b8-815e-9542565294ee)
+## 메뉴페이지
+![메뉴페이지](https://github.com/GordPark/MINI_PJ-Cafe_Kiosk/assets/134121857/9eedff9d-0bb6-49da-bb93-1b4699660953)
+
+
 ## 📝Conceive
 ![키오스크1](https://github.com/GordPark/MINI_PJ-Cafe_Kiosk/assets/134121857/87149987-837c-467f-83bf-98627ad4e228)
 ![키오스크2](https://github.com/GordPark/MINI_PJ-Cafe_Kiosk/assets/134121857/e44e8dbe-73a2-4ec8-98de-708589f10e26)
