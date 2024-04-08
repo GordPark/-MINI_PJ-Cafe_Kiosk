@@ -36,6 +36,7 @@
 ~/miniconda3/python `v.3.10.0`
 
 **requirements.txt**
+
 `asgiref==3.8.1`
 
 `Django==5.0.3`
