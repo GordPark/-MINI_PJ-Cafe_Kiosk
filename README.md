@@ -19,6 +19,8 @@
 **구현하고 싶은 기능**
 20초를 설정하여 시간이 지나면 처음 페이지로 돌아갑니다.
 
+https://github.com/GordPark/MINI_PJ-Cafe_Kiosk/assets/134121857/d2ba06da-8b47-4a9a-90ce-98c7647bdfb6
+
 ## 대문페이지
 
 ![대문페이지](https://github.com/GordPark/MINI_PJ-Cafe_Kiosk/assets/134121857/fecbf38a-1db9-4f52-9d1a-b82edb2c1298)
