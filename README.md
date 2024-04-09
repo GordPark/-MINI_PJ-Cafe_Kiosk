@@ -42,8 +42,6 @@ https://github.com/GordPark/MINI_PJ-Cafe_Kiosk/assets/134121857/d2ba06da-8b47-4a
 ![키오스크1](https://github.com/GordPark/MINI_PJ-Cafe_Kiosk/assets/134121857/87149987-837c-467f-83bf-98627ad4e228)
 ![키오스크2](https://github.com/GordPark/MINI_PJ-Cafe_Kiosk/assets/134121857/e44e8dbe-73a2-4ec8-98de-708589f10e26)
 
-![키오스크1](https://github.com/GordPark/MINI_PJ-Cafe_Kiosk/assets/134121857/87149987-837c-467f-83bf-98627ad4e228)
-![키오스크2](https://github.com/GordPark/MINI_PJ-Cafe_Kiosk/assets/134121857/e44e8dbe-73a2-4ec8-98de-708589f10e26)
 
 ## Environment
 
