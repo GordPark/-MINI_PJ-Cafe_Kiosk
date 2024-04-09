@@ -22,6 +22,7 @@ v24/04/09 - 자바스크립트 동적으로 옵션/수량 체크 및 shopping_ca
 20초를 설정하여 시간이 지나면 처음 페이지로 돌아갑니다.
 
 v24/04/09 - 영상
+
 https://github.com/GordPark/MINI_PJ-Cafe_Kiosk/assets/134121857/d2ba06da-8b47-4a9a-90ce-98c7647bdfb6
 
 ## 대문페이지
