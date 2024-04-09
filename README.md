@@ -3,6 +3,7 @@
 <img src ="https://img.shields.io/badge/Python-071D49?logo=Python&logoColor=white"/><img src="https://img.shields.io/badge/django-092E20?style=flat-square&logo=django&logoColor=white"/><img src="https://img.shields.io/badge/Bootstrapap-7952B3?style=flat-square&logo=bootstrap&logoColor=white"/><img src ="https://img.shields.io/badge/OpenAI-00A3E0?logo=OpenAI&logoColor=white"/>
 
 🛒Kiosk-COCO v24/04/08
+
 v24/04/09 - 자바스크립트 동적으로 옵션/수량 체크 및 shopping_cart페이지로 데이터 보내는 중 오류..
 
 ## Description
